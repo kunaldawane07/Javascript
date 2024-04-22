@@ -41,3 +41,27 @@ const myFunction = function(){
 console.log(typeof null);
 
 // all non primiotive will give type of is "Object" and for function only it gives "object function"
+
+//--------------------------------------------------------------------------------------------------------------
+
+// Stack(Primitive)jo bhi aapne variable declare kiya uska apko copy milta hai, Heap(Non-Primitive) yaha pe apko original ka refrence milta hai
+
+let myYoutubename = "kunaldotcom"
+
+let anothername = myYoutubename
+anothername = "kdaurchai"
+
+console.log(anothername);
+console.log(myYoutubename);
+
+let userOne = {
+   email: "user@google.com",
+   upi: "user@ybl" 
+}
+
+let userTwo = userOne
+
+userTwo.email = "kunal@gmail.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
