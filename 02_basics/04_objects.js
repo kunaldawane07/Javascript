@@ -58,3 +58,35 @@ console.log(Object.values(tinderUser)); //jo bhi apke object ki values hai use a
 console.log(Object.entries(tinderUser)); // appke object ki keys and values ka ek array banata hai single ka
 
 console.log(tinderUser.hasOwnProperty("isLogged")); // object ke pas is name ka keys hai ya nahi question krne ke liye
+
+//-----------------------------
+
+// object de-structure
+
+const course ={ 
+    coursename: "js in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+}
+
+//course.courseInstructor // is tarah se call kr sakte hai but bahut baar krna raha to isliye use nahi krte hai professional log so humne bhi nahi krna chahiye
+
+const {courseInstructor: instructor} = course // jo curly braces ke andar jo kiya hai wo object de-structuring hai
+
+//console.log(courseInstructor);
+console.log(instructor);
+
+//----------------------------------------------------------
+//API => API kya hai jo bhi aapke values aati hai Backend se use aap kaise likhate hai |...| pahele wo xml structure me aati thi par ab wo JSON me aati hai  
+
+// {                                // JSON me aise hi values likhi jati hai same as object but LHS:RHS me string me hi likhi jani chahiye tabhi wo JSON hai
+//     "name": "Kunal",
+//     "coursename" : "js in hindi"
+//     "price" : "free"
+// }
+
+[
+    {}, // kabhi kabhi api arrays ke form me bhi aa sakti hai
+    {},
+    {}
+]
