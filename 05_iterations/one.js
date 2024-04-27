@@ -48,10 +48,9 @@ for (let index = 1; index <= 20; index++) {
 for (let index = 1; index <= 20; index++) {
     if(index == 5){
         console.log(`Detected 5`);
-        Con  // 
+        continue  // continue ka matlan ye hai ki ek baar hum usko skip kr dege ya phir ek galati maaf
     }
     console.log(`Value of i is ${index}`);
     
 }
 
-for
