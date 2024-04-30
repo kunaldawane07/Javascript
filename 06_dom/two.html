@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);  // yaha pe aapko mil rahi parent class 
+    // console.log(parent.children); // jab yaha aap print krne jaoge to aapko milega HTML Collection jo ki array like property hai
+    // console.log(parent.children[1].innerHTML); // isase hame ye pata chalta hai ki sabke koi na koi children hote hai || isase ye bhi pata chalta hai aap parent bhi find kr sakte hai
+
+    // for (let i = 0; i < parent.children.length; i++) { // ispe pe to loop nahi lagta ye barabr hai but simple for loop to laga hi sakte hai
+    //      console.log(parent.children[i].innerHTML);
+        
+    // }
+    parent.children[1].style.color = "orange"
+    // console.log(parent.firstElementChild); // parent andar jo hai bas children hi nahi to bahut sari properties hoti hai jaise ki ye
+    // console.log(parent.lastElementChild); // ye dono hi parent se child pe le ja rahe hai
+
+    const dayOne = document.querySelector('.day') 
+    // console.log(dayOne); 
+    // console.log(dayOne.parentElement); // suppose kariye jab aapke pass dayone  pahale declare ho ek variable me to aap bar bar ye querySelector.querySelector asan nahi wo expensive operation hai pura performance kr raha pura thread through ke ja raha hai akhir hai kya DOM ek pura ka pura tree structure hai na aur pure tree ko traverse krna ise liye sidha aap 
+    // console.log(dayOne.nextElementSibling); //parent pe hi nahi to app next sibling pe bhi ja sakte hai bas jab wo variable declare ho tab
+
+    console.log("NODES: ", parent.childNodes); // A nodelist is a collection of document nodes which includes text nodes , attribute nodes and element nodes. A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+</script>
+</html>
