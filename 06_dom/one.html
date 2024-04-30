@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #ffff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">DOM learning on Chai aur Code <span style="display: none;"> test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+
+<!-- DOM MAnipulation me HTML collection, node collection  and array ye sab alag chize hai but hum usko array me convert kr sakte hai
+
+document
+    #document (http://127.0.0.1:5500/06_dom/one.html)
+document.getElementById('title')
+    <h1 id=​"title" class=​"heading">​DOM learning on Chai aur Code​</h1>​
+document.getElementById('title').id
+    'title'
+document.getElementById('title').class
+    undefined
+document.getElementById('title').className
+    'heading'
+document.getElementById('title').getAttribute
+    ƒ getAttribute() { [native code] }
+document.getElementById('title').getAttribute()
+    VM466:1 Uncaught TypeError: Failed to execute 'getAttribute' on 'Element': 1 argument required, but only 0 present.
+    at <anonymous>:1:34
+    (anonymous) @ VM466:1
+
+        [NEW] Explain Console errors by using Copilot in Edge: click 
+         to explain an error. 
+        Learn more
+        Don't show again
+document.getElementById('title').getAttribute('id')
+    'title'
+document.getElementById('title').getAttribute('class')
+    'heading'
+document.getElementById('title').setAttribute('class', 'test') // jab bhi hum setAttribute krte hai tab previous ko overwrite kr dete hai ye mistake hamesha hoti hai
+    undefined
+document.getElementById('title').setAttribute('class', 'test heading')
+    undefined
+const title = document.getElementById('title')
+    undefined
+title.style.backgroundColor = "green"
+    'green'
+title.style.padding = "15px"
+    '15px'
+title.style.borderRadius = "15px"
+    '15px'
+title.innerText
+    'DOM learning on Chai aur Code'
+title.textContent
+    'DOM learning on Chai aur Code  test text'
+title.innerHTML
+    'DOM learning on Chai aur Code <span style="display: none;"> test text</span>'
+document.querySelector('h2')
+    <h2>​Lorem ipsum dolor sit.​</h2>​
+document.querySelector('#title')
+    <h1 id=​"title" class=​"heading">​…​</h1>​
+document.querySelector('.heading')
+    <h1 id=​"title" class=​"heading">​…​</h1>​"DOM learning on Chai aur Code "<span style=​"display:​ none;​">​ test text​</span>​</h1>​
+document.querySelector('input [type="password"]')
+    null
+document.querySelector('input[type="password"]')
+    <input type=​"password" name id>​
+document.querySelector('p:first-child')   // ye sab css aapko kitani aati hai uspar bhi nirbhar hota hai
+    null
+document.querySelector('ul')
+    <ul>​…​</ul>​
+const myul = document.querySelector('ul')
+    undefined
+myul.querySelector('li')
+    <li>​…​</li>​
+const turnGreen = myul.querySelector('li')
+    undefined
+turnGreen.style.backgroundColor = "green"
+    'green'
+turnGreen.style.padding = "10px"
+    '10px'
+turnGreen.innerText
+    'one'
+turnGreen.innerText = "five"
+    'five'
+document.querySelectorAll('li')
+    NodeList(4) [li, li, li, li]
+const tempLiList = document.querySelectorAll('li')
+    undefined
+tempLiList
+    NodeList(4) [li, li, li, li]0: li1: li2: li3: lilength: 4[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+const myArr = [1, 2, 3, 4]
+    undefined
+myArr
+    (4) [1, 2, 3, 4]0: 11: 22: 33: 4length: 4[[Prototype]]: Array(0)at: ƒ at()concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()findLast: ƒ findLast()findLastIndex: ƒ findLastIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toReversed: ƒ toReversed()toSorted: ƒ toSorted()toSpliced: ƒ toSpliced()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()with: ƒ with()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {at: true, copyWithin: true, entries: true, fill: true, find: true, …}[[Prototype]]: Object
+tempLiList.style.color = 'green'
+    VM9496:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+        at <anonymous>:1:24
+    (anonymous) @ VM9496:1
+    
+            [NEW] Explain Console errors by using Copilot in Edge: click 
+             to explain an error. 
+            Learn more
+            Don't show again
+tempLiList[0].style.color = 'green'    // NodeList & HTMLCollection ye dono array jaise dikhate hai but hai nahi aur thodese similar hai but jaise ki map property nahi hoti hai aur use use bhi kr sakte isase pata chal jata hai
+    'green'
+const myH1 = document.querySelectorAll('h1')
+    undefined
+myH1
+    NodeList(4) [h1#title.heading, h1#​"title".​"heading", h1#​"title".​"heading", h1#​"title".​"heading"]
+myH1.style.color = 'green'
+    VM10098:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+        at <anonymous>:1:18
+    (anonymous) @ VM10098:1
+    
+            [NEW] Explain Console errors by using Copilot in Edge: click 
+             to explain an error. 
+            Learn more
+            Don't show again
+myH1[0].style.color = 'green'
+    'green'
+tempLiList
+    NodeList(4) [li, li, li, li]
+tempLiList.forEach(function (l) {             
+        l.style.backgroundColor = 'green'
+    })                                        // isme kya kariyega ki jab bhi querySelectorAll use karne ka raha to forEach use kijiye agar fir bhi aapko array ke function use krne ke hai to app pahale use array me convert kijiye fir use kariye
+    undefined
+document.getElementsByClassName('list-item')
+    HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+const tempClassList = document.getElementsByClassName('list-item')
+    undefined
+tempClassList
+    HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+tempClassList.forEach(function(li) {
+        console.log(li)
+    })
+    VM11880:1 Uncaught TypeError: tempClassList.forEach is not a function
+        at <anonymous>:1:15
+    (anonymous) @ VM11880:1
+    
+            [NEW] Explain Console errors by using Copilot in Edge: click 
+             to explain an error. 
+            Learn more   // isme array ke function use krne ka raha to pahale use Array me convert krna padega uske baad aap use kr sakte hoo 
+const tempClassList = document.getElementsByClassName('list-item')
+    undefined
+tempClassList
+    HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+Array.from(tempClassList)
+    (4) [li.list-item, li.list-item, li.list-item, li.list-item]
+const myConvertedArray = Array.from(tempClassList)
+    undefined
+myConvertedArray
+    (4) [li.list-item, li.list-item, li.list-item, li.list-item]
+myConvertedArray.forEach(function (li) {
+        li.style.color = 'orange'
+    })
+    undefined -->
