@@ -15,3 +15,7 @@ I am learning JavaScript from scratch to advanced.
    - ![IMG_20240427_114530_1](https://github.com/kunaldawane07/Javascript/assets/154004918/7ac141e5-21b9-4ab5-9a32-c6afcda25a47)
 
    - ![IMG_20240427_114553_1](https://github.com/kunaldawane07/Javascript/assets/154004918/8433abb2-5cc3-44f0-bf92-bb0f5a4b0132)
+# DOM (Document Object Model)
+
+![Screenshot 2024-04-30 104104](https://github.com/kunaldawane07/Javascript/assets/154004918/5997b3a4-c95c-4d7f-9a1d-cc7aa504d641)
+![Screenshot 2024-04-30 104308](https://github.com/kunaldawane07/Javascript/assets/154004918/2094e316-51c1-4226-b6e9-e5246d8d3920)
