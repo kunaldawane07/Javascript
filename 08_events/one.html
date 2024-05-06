@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141;color: aliceblue;">
+   <div >
+      <ul id="images">
+          <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+          <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+          <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+      </ul>
+ </div>
+
+    
+</body>
+<script>
+   //  javascript ke andar jo events hote hai wo sequentially hi run hote hai aur kuch exception hai
+   // javascript ek sequentially run language hai
+   // event ko hum jo sidha button me inject krte hai to wo sahi approach nahi hai aur wo sclable approach nahi hai ye react ke andar thik hai but javascript ke andar nahi
+   document.getElementById('owl').onclick  = function(){ // is approach me bhi problem hai quki onclick ke andar problem ho sakti hai aur humko jyada information nahi mil rahi hai iske liye hame eventListeners use krne chahiye 
+    // aur event listeners jo hai wo aapki propagation ki ability dete hai
+    alert("owl clicked")
+   }
+
+   // best approach
+   // attachEvent()  ye internet explorer me use hota tha
+   // jQuery - on
+   document.getElementById('owl').addEventListener('click', function() { // sabse jyada interview me puche jate hai   || aur iske andar three parameters hote hai aur third wala hamesha false hota hai aur usko likhane ki jarurat bhi nahi hoti  || interview me kuch application aisi di jati hai ki wo thrid parameter likhe bina run hi nahi hoti
+    alert("owl clicked again")   
+   }, false)  
+
+   document.getElementById('owl').addEventListener('click',function(e){ // ye jo event object hai "e" uske bare me sabse jyada padhane ki jarurat hai 
+   console.log(e);   // mostly jo hai aapko milege browser ke events aur enviornment ke events(mouse ne kaha pe click kiya,aur konsi position thi mouse ki) ||  Interview question .jab aapne click kiya to view kya tha aur window ki height and width kya thi aur kis time click huaa => ye sab chize hoti hi events se hai
+   }, false)
+   // type of events => keyboard, mouse, timestamp => date activity kaise change krte hai uske kaam aayegi, defaultPrevented
+   // target, toElement, srcElement, currentTarget,
+   // clientX, clientY, screenX, screenY ye kafi Interviews me aayege
+   // altkey, ctrlkey, shiftkey, keyCode
+
+   // event propogation hai kya => event propogation ke two context hote hai event bubbling and event capturing || aur market me jo use hota hai wo hota hai event bubbling jo hota hai false aur ye default hota hai  || kuch scenario me aapko event capturing use krna pad sakta hai wo hota hai true
+
+   document.getElementById('images').addEventListener('click',function(e){
+    console.log("clicked inside the ul"); 
+   }, false)
+    // isme kya hota hai jab hum dusari image pe click krte hai to "clicked inside the ul" ye ata hai pr jab hum owl pe click krte hai tab pahale "owl clicked"  aur badme "clicked inside the ul" quki ye bubble ki tarah work krtq hai.  wo andar se bahar jata hai. 
+   document.getElementById('owl').addEventListener('click',function(e){
+    console.log("owl clicked");
+   }, false)
+
+   document.getElementById('images').addEventListener('click',function(e){
+    console.log("clicked inside the ul"); 
+   }, true)
+    // capturing mode aise work krta hai top to bottom usme pahale "clicked inside the ul" badme "owl clicked"
+   document.getElementById('owl').addEventListener('click',function(e){
+    console.log("owl clicked");
+   }, true)
+
+   document.getElementById('owl').addEventListener('click',function(e){
+    console.log("owl clicked");
+    e.stopPropagation() // isme kya hota hai bubble ko wahi stop kiya jata hai to wo bahar nahi jata
+   }, false)
+
+   document.getElementById('google').addEventListener('click', function(e){  // "e" me function store hota hai aur usase hum usko property call kr sakta hai
+    e.preventDefault() // ye isliye  use hota ki ye yahi store ho bahar na jaye isliye
+    e.stopPropagation() // ye bhi bahar na jane ke liye use hota hai 
+    console.log("google clicked");
+   })
+
+
+   // activity => image pe click krne ke baad image remove honi chahiye
+   document.querySelector('#images').addEventListener('click', function(e){
+    //  console.log(e.target.parentNode); // kahi scenario me aapko uske parentNode chahiye hote hai uske liye ye use hota hai || kahi baar parentNode ke sath remove krna hota hai kyoki aap image ko nahi uske parent ke sath remove kna chahate ho isliye || isme ye problem hai ki jab hum google pe click kr rahe hai wo bhi remove ho raha hai uske liye strick check lagate hai
+    console.log(e.target.tagName);
+     if (e.target.tagName === 'IMG'){
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode
+        removeIt.remove() // ye first tarika 
+     }
+     
+    //  removeIt.parentNode.removeChild(removeIt)  // ye second wala method hai || ye new method hai aur thodasa step wise kaam krta hai
+   } )
+
+</script>
+</html>

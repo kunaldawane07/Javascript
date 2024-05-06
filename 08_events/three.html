@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Print</title>
+</head>
+<body style ="background-color :#414141; color:aliceblue">
+    <h1>Chai aur JavaScript</h1>
+    
+    <button id="start"> Start </button>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+    let intervalId;
+    const sayName = function(){
+        if(!intervalId){
+            intervalId = setInterval(startName, 1000)
+        }
+     
+     function startName(){
+        console.log(" Kunal ", Date.now());  
+     }  
+   }
+
+   const stopName = function(){
+    clearInterval(intervalId)
+    intervalId = null
+   }
+   
+   document.querySelector("#start").addEventListener('click', sayName)
+
+   document.querySelector("#stop").addEventListener('click', stopName)
+
+   
+   
+   
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Timeout</title>
+</head>
+<body style ="background-color :#414141; color:aliceblue">
+    <h1>Chai aur Code</h1>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+    // setTimeout() // jab aap browser ke andar jake window object ko call krte hai tab setTimeout(), setInterval() naam ke function hote hai || ye sirf core function nahi hai ye aapko browser ke through milte hai ye aur api's me milte hai aur bhi browser ke runtime environment me milate hai but core JavaScript ke part nahi hai || aur JavaScript engine me humne dekha ki usme sirf call stack aur heap memory hai || but ye jab call hote hai tab bahar jata hai aur event queue ke through milate hai aur ye dono aise hi hai || aur inke two part hai clearInterval() and clearTimeout() important for interview prepration
+    // setTimeout() krta kya hai aur usko chahiye kya usko chahiye handler means callback, function hai uska naam nahi hai and timeout jo number me hota hai
+    
+    setTimeout(function(){
+        console.log("Kunal"); // ye bas ek baar hi print hoga us samay ke baad
+    }, 2000)
+
+    const sayKunal = function(){
+        console.log("Kunal");
+    }
+    
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS series"
+    }
+
+    // setTimeout(changeText, 2000) // ye function ka refrence dijiyega use execute mat kijiyega
+    
+    const changeMe = setTimeout(changeText, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("Stopped");
+    })
+
+</script>
+</html>
